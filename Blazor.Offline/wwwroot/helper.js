@@ -6,10 +6,9 @@ window.getWindowSize = () => {
     let canvasContextCache = {};
 
     let getContext = (canvas) => {
-        if(!canvasContextCache[canvas]){
+        if (!canvasContextCache[canvas]) {
             canvasContextCache[canvas] = canvas.getContext('2d');
         }
-
         return canvasContextCache[canvas];
     };
 

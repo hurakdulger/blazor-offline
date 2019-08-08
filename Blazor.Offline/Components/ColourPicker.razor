@@ -13,17 +13,17 @@
     public Func<string, Action<UIMouseEventArgs>> OnClick { get; set; }
 
     [Parameter]
-    public IEnumerable<string> Colours { get; set; }    
+    public IEnumerable<string> Colours { get; set; }
 
     public string CurrentColour { get; set; }
 
     private Action<UIMouseEventArgs> OnClickWrapper(string colour)
-    {       
-        return e => 
+    {
+        return e =>
         {
             CurrentColour = colour;
             OnClick(colour)(e);
-        }
+        };
     }
 
     protected override void OnParametersSet()
