@@ -18,9 +18,12 @@
     public string CurrentColour { get; set; }
 
     private Action<UIMouseEventArgs> OnClickWrapper(string colour)
-    {
-        CurrentColour = colour;
-        return OnClick(colour);
+    {       
+        return e => 
+        {
+            CurrentColour = colour;
+            OnClick(colour)(e);
+        }
     }
 
     protected override void OnParametersSet()
